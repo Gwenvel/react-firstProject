@@ -42,3 +42,40 @@
           >
             Spirit Animal: Snake
     </Person>
+
+    ---------------------------------------------------
+
+  //   this.setState({
+  //     persons: [
+  //       { name: 'Johnanthan', age: 100 },
+  //       { name: 'Sam', age: 15 },
+  //       { name: event.target.value, age: 50 },
+  //       { name: 'Phillip', age: 45 },
+  //       { name: 'SpongeBob', age: 20 },
+  //       { name: 'Sandy', age: 5 }
+  //     ]
+  //   })
+  -----------------------------------------------------
+      // const persons = this.state.persons.slice();
+      ----------------------------------------------
+
+    
+    // const style = {
+    //   backgroundColor: 'green',
+    //   color:'white',
+    //   font: 'inherit',
+    //   border: '1px solid blue',
+    //   padding: '8px',
+    //   cursor: 'pointer'
+    //   // ':hover': {
+    //   //   backgroundColor: 'lightgreen',
+    //   //   color: 'black'
+    //   // }
+    // };
+    -------------------------------------------
+          // style.backgroundColor = 'red';
+      // style[':hover'] = {
+      //   backgroundColor: 'pink',
+      //   color: 'black'
+      // }
+      ----------------------------------

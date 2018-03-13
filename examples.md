@@ -79,3 +79,9 @@
       //   color: 'black'
       // }
       ----------------------------------
+          // const style = {
+    //     '@media (min-width: 500px)': {
+    //         width: '450px'
+    //     }
+    // }
+    // return <p>I'm a person and I am {Math.floor(Math.random()*30)} years old</p>

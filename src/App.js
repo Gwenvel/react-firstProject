@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import classes from './App.css';
 import Person from './Person/Person';
 // import Radium, {StyleRoot} from 'radium';
+import ErrorBoundary from './ErrorBoundaries/ErrorBoundary';
 
 class App extends Component {
   state = {
     persons: [
-      { id: 1,name: 'John', age: 20 },
+      { id: 1, name: 'John', age: 20 },
       { id: 2, name: 'Sam', age: 15 },
       { id: 3, name: 'Jill', age: 50 },
       { id: 4, name: 'Phillip', age: 30 },
@@ -27,7 +28,7 @@ class App extends Component {
         { name: 'SpongeBob', age: 20 },
         { name: newName, age: 5 }
       ],
-      showPersons: false            
+      showPersons: false
     })
   }
 
@@ -48,14 +49,14 @@ class App extends Component {
     persons[personIndex] = person;
 
 
-    this.setState({persons: persons});
+    this.setState({ persons: persons });
   }
 
- deletePersonsHandler = (ind) => {
+  deletePersonsHandler = (ind) => {
 
     const persons = [...this.state.persons];
     persons.splice(ind, 1);
-    this.setState({persons: persons});
+    this.setState({ persons: persons });
   }
 
   togglePersonsHandler = () => {
@@ -67,18 +68,19 @@ class App extends Component {
 
 
     let persons = null;
-    let btnClass='';
+    let btnClass = '';
 
     if (this.state.showPersons) {
       persons = (
         <div>
           {this.state.persons.map((person, index) => {
-            return <Person 
-                      click={() => this.deletePersonsHandler(index)}
-                      name={person.name} 
-                      age={person.age} 
-                      key={person.id}
-                      changed={(event) => this.nameChangedHandler(event, person.id)}/>
+            return <ErrorBoundary key={person.id}>
+              <Person
+                click={() => this.deletePersonsHandler(index)}
+                name={person.name}
+                age={person.age}
+                changed={(event) => this.nameChangedHandler(event, person.id)} />
+            </ErrorBoundary>
           })}
         </div>
       );
@@ -91,12 +93,12 @@ class App extends Component {
 
     const assignedClasses = [];
 
-    if(this.state.persons.length <= 2) {
+    if (this.state.persons.length <= 2) {
       // classes.push('red');
       assignedClasses.push(classes.Red);
     }
 
-    if(this.state.persons.length >= 1) {
+    if (this.state.persons.length >= 1) {
       // classes.push('bold');
       assignedClasses.push(classes.Bold);
     }
